@@ -1,0 +1,66 @@
+
+@import '../../styles/variables';
+@import '../../styles/fonts';
+@import '../../styles/maincss';
+
+#header {
+    background-color: #a7a6a6;
+    border-bottom: 1px solid $colorbase2;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+  
+    .header__logo {
+      width: 30%;
+  
+      max-width: 50%;
+      height: 50px;
+  
+      background: url("../../media/Icono Azul Circular.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      &:hover {
+        cursor: pointer;
+      }
+      @media all and (min-width: $point-md) {
+        background: url("../../media/Logo2.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+  
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 25%;
+  
+        max-width: 100%;
+        height: 50px;
+      }
+    }
+    #header__call-action {
+      border: 2px solid $colorbase2;
+      margin-left: 10px;
+      margin-right: 10px;
+      text-align: center;
+      background-color: $colorbase2;
+      &:hover {
+        background-color: #ffffff;
+        border: 2px solid #ffffff;
+      }
+      a:hover {
+        color: black;
+        background-color: white;
+      }
+    }
+    .header__menu {
+      list-style-type: none;
+      padding: 0 10px;
+      a {
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: upper;
+        &:hover {
+          color: black;
+          background-color: white;
+        }
+      }
+    }
+  }

@@ -1,0 +1,64 @@
+.siteCenter {
+    max-width: 1100px;
+    margin: auto;
+  }
+li,
+p,
+label,
+a {
+  /*font-family: 'GothamBook';*/
+  font-family: $font-family-standard;
+  font-weight: 400;
+}
+.subtitulo {
+  font-family: $font-family-standard;
+  font-weight: 700;
+  font-size: 1em;
+  color: $colorbase2;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  margin-bottom: 0px;
+}
+.subtituloWhite {
+  font-family: $font-family-standard;
+  font-weight: 700;
+  font-size: 1em;
+  color: #ffffff;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  margin-bottom: 0px;
+}
+.title {
+  /*font-family: 'GothamBold';*/
+  font-family: $font-family-standard;
+  font-weight: 700;
+  font-size: 2rem;
+  color: $colorbase2;
+  padding-top: 20px;
+  margin-bottom: 5px;
+}
+.titleWhite {
+  /*font-family: 'GothamBold';*/
+  font-family: $font-family-standard;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #ffffff;
+  padding-top: 20px;
+  margin-bottom: 5px;
+}
+.title2 {
+  /*font-family: 'GothamBold';*/
+  font-family: $font-family-standard;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fcfcfc;
+  padding: 10px;
+}
+.title2White {
+  /*font-family: 'GothamBold';*/
+  font-family: $font-family-standard;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ffffff;
+  padding: 10px;
+}
