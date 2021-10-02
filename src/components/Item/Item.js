@@ -6,7 +6,7 @@ function Item({text,title,img,setItems,items,stock}) {
     const [cantidad,setCantidad] = useState(1)
     
     const addItem = () => {
-        if((cartItem+cantidad)<stock){
+        if((cartItem+cantidad)<=stock){
             setCartItem(cartItem+cantidad)
             setItems(items+cantidad)
         } 
@@ -35,7 +35,7 @@ function Item({text,title,img,setItems,items,stock}) {
                             <button onClick={addCant} className="btn col-xs-6 btn-primary mx-auto">+</button>
                         </div>
                         <div className="row">
-                            <button onClick={()=>addItem()} className="btn btn-primary my-3">Add to Cart</button>
+                            <button onClick={()=>addItem()} className="btn btn-primary my-3" disabled= {cartItem>=stock ? true : null}>Add to Cart</button>
                         </div>
                     </div>
                 </div>
