@@ -1,7 +1,8 @@
 import React from 'react'
 import './Navbar.scss';
 import CartWidget from '../CartWidget/CartWidget';
-const navbar = () => {
+const navbar = ({items}) => {
+    // console.log(items)
     return (
         <div id="header">
         <nav className="navbar navbar-expand-lg navbar-dark siteCenter">
@@ -29,7 +30,7 @@ const navbar = () => {
               </a>
             </div>
             <div>
-                <CartWidget/>
+                <CartWidget items={items}/>
             </div>
           </div>
         </nav>

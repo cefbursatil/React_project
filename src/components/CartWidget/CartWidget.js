@@ -3,17 +3,18 @@ import Icon from '../Stateless/Icon/Icon'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import './CartWidget.scss';
 
-function CartWidget() {
+function CartWidget({items}) {
+    // console.log(items)
     return (
         <span id="cart">
-            <Icon icon={faShoppingCart}/>
+            <p>
+                <Icon icon={faShoppingCart}/>
+                {items}
+            </p>
         </span>
     )
 }
 
-CartWidget.propTypes = {
-
-}
 
 export default CartWidget
 
