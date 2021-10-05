@@ -4,14 +4,14 @@ export const ItemList = ({setItems,items}) => {
     const [result,setResult] = useState(null);
      // GET ITEMS
      const itemsobj = [
-        {id:0, nombre:"TDI CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:5},
-        {id:1, nombre:"TDI CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20}
+        {id:0, nombre:"TDI CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:5,initial:1},
+        {id:1, nombre:"TDI CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1}
     ]
     const task = new Promise((resolve,reject) => {
     setTimeout(() => {
     resolve(itemsobj)
     //acá indico que quiero que este setTimeout demore 3 segundos
-    }, 3000);
+    }, 2000);
     })
     useEffect(()=> {
         if(!result){
@@ -25,7 +25,7 @@ export const ItemList = ({setItems,items}) => {
             })
         }
         console.log(result)
-    },[result])
+    },[result]);
 
     return (
         <div className="container p-3">
@@ -39,6 +39,7 @@ export const ItemList = ({setItems,items}) => {
                         img={item.img}
                         setItems={setItems}
                         items={items}
+                        initial={item.initial}
                     />
                 )))}
         </div>
