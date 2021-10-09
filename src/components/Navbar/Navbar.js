@@ -1,12 +1,18 @@
 import React from 'react'
 import './Navbar.scss';
 import CartWidget from '../CartWidget/CartWidget';
-const navbar = ({items}) => {
+import { Link } from "react-router-dom";
+const navbar = ({items,setSearch}) => {
     // console.log(items)
     return (
         <div id="header">
         <nav className="navbar navbar-expand-lg navbar-dark siteCenter">
-          <div className="header__logo" onclick="location.href='index.html';"></div>
+              <Link to="/"className="header__logo"> 
+              <div>
+                             
+              </div>
+              </Link>
+          
           <button
             className="navbar-toggler"
             type="button"
@@ -19,13 +25,19 @@ const navbar = ({items}) => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav header__menu">
-              <a href="#value" class="nav-item nav-link">Value Proposition</a>
-              <a href="#performance" class="nav-item nav-link">Performance</a>
-              <a href="#how" class="nav-item nav-link">How It Works</a>
-              <a href="#community" class="nav-item nav-link">Community</a>
-            </div>
-            <div id="header__call-action" class="navbar-text">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <form className="d-flex">
+            <input
+
+              onChange = {(e) => setSearch(e.target.value)}
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </form>
+        </div>
+            <div id="header__call-action" className="navbar-text">
               <a href="https://www.mql5.com/en/market/product/65466">Try the EA
               </a>
             </div>
