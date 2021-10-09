@@ -7,7 +7,6 @@ import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 
 
-
 function Main(props) {
     //defino un state para el carrito, definiendo variable de items agregados al carrito
 
@@ -20,9 +19,9 @@ function Main(props) {
         setCarts(carts+1)
     }*/
     //Se loguea cada vez que se realiza algun cambio en items
-    useEffect(() => {
+    /*useEffect(() => {
         console.log("Se agrego un Item")
-    }, [items])
+    }, [items])*/
 
     return (
         <main>

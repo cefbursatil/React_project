@@ -8,7 +8,9 @@ export const ItemList = ({setItems,items,loading,search,setLoading}) => {
      // GET ITEMS
      const itemsobj = [
         {id:0,category:0, nombre:"TDI CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:5,initial:1},
-        {id:1,category:0, nombre:"TDI CLEVER 2",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1}
+        {id:1,category:0, nombre:"MACD CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1},
+        {id:3,category:1, nombre:"RSI CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1},
+        {id:4,category:1, nombre:"SCALPER CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1}
     ]
     const task = new Promise((resolve,reject) => {
         
@@ -18,7 +20,7 @@ export const ItemList = ({setItems,items,loading,search,setLoading}) => {
                 resolve(itemsobj)
             }
             else if(idcat!==undefined){
-                resolve(itemsobj.filter(item => item.category == idcat).map(filteredItem => setResult(filteredItem)));
+                resolve(itemsobj.filter((i) => i.category == idcat));
 
             }
             else if(id!==undefined){
@@ -45,6 +47,7 @@ export const ItemList = ({setItems,items,loading,search,setLoading}) => {
     },[result]);
     
     // aca estoy filtrando los productos
+    
     let filter = result && result.filter((p) => p.nombre.toLowerCase().includes(search.toLowerCase()));
     console.log("LOADING "+loading );
     return (
