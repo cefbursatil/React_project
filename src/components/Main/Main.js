@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from '../Navbar/Navbar'
 import ItemListContainer from '../ItemListContainer/ItemListContainer'
 import Banner from '../Banner/Banner'
-import { BrowserRouter,Route,Switch } from "react-router-dom";
+import {BrowserRouter,Route,Switch} from "react-router-dom";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 
@@ -14,6 +14,7 @@ function Main(props) {
     const [items,setItems] = useState(0)
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
+
     /*const [carts,setCarts] = useState(0)
     const addCart = () => {
         setCarts(carts+1)
@@ -22,23 +23,24 @@ function Main(props) {
     /*useEffect(() => {
         console.log("Se agrego un Item")
     }, [items])*/
-
+     //Ponemos key a los router para obligarlo a actualizar debido a que el componente es el mismo   
     return (
         <main>
             <BrowserRouter>
                 <Navbar items={items} setSearch={setSearch}/>
                 <Banner/>
                 <Switch>
+                    
                     <Route exact path ="/">
                         <ItemListContainer setItems={setItems} items={items} search={search} setLoading={setLoading} loading={loading}/>
                     </Route>
-                    <Route exact path ="/category/:idcat">
+                    <Route path ="/category/:idcat">
                         <ItemListContainer setItems={setItems} items={items} search={search} setLoading={setLoading} loading={loading}/>
                     </Route>
-                    <Route exact path="/item/:id"> 
+                    <Route path="/item/:id"> 
                         <ItemDetailContainer setItems={setItems} items={items} search={search} setLoading={setLoading} loading={loading}/>
                     </Route>
-                    <Route exact path="*">
+                    <Route path="*">
                         <h1>La pantalla de 404  !!!</h1>
                     </Route>
                 </Switch>
