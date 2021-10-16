@@ -1,15 +1,16 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import Icon from '../Stateless/Icon/Icon'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import './CartWidget.scss';
-
-function CartWidget({items}) {
-    // console.log(items)
+import { CartContext } from '../../context/CartContext';
+function CartWidget() {
+    const {total} = useContext(CartContext);
+    console.log(total)
     return (
         <span id="cart">
             <p>
                 <Icon icon={faShoppingCart}/>
-                {items}
+                {total}
             </p>
         </span>
     )

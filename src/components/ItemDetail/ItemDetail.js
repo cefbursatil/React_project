@@ -1,17 +1,22 @@
-import React from 'react'
+import React ,{useContext} from 'react'
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
-function ItemDetail({Item,setItems,items}) {
-    console.log("ITEM "+Item);
+function ItemDetail(item) {
+    const {id,text,title,img,stock,initial} = item
+    const {addItem,cartItems} = useContext(CartContext)
+    const handleOnAdd = count => addItem(item, count)
+    const cartElement = cartItems.find(element => element.item.id === id)
+    const alreadyCart = cartElement ? cartElement.count : 0;
     return (
         <div>
-            <h1>{Item.name}</h1>
-            <img className="card-img-top" src={Item.img} alt="Card cap"/>
-            <h2>{Item.description}</h2>
-            <ItemCount setItems={setItems} items={items} stock={Item.stock} initial={Item.initial}/>
+            <h1>{title}</h1>
+            <img className="card-img-top" src={img} alt="Card cap"/>
+            <h2>{text}</h2>
+            <ItemCount stock={stock-alreadyCart} initial={initial} onAdd={handleOnAdd}/>
             <Link to="/" class="btn btn-primary">
                 Return
-            </Link>    
+            </Link>
         </div>
     )
 }

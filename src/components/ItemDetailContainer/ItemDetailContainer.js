@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useContext } from "react";
 import ItemDetail from '../ItemDetail/ItemDetail'
 import Spinner from '../Stateless/Spinner/Spinner'
 import { useParams } from "react-router";
+import DATA from "../../mocks/data";
+import { GeneralContext } from "../../context/GeneralContext";
 
-function ItemDetailContainer({setItems,items,loading,setLoading}) {
+function ItemDetailContainer() {
     const [DetailItem,setDetailItem] = useState(null);
+    const {setLoading,loading} = useContext(GeneralContext)
     const {id} = useParams()
-    const itemsobj = [
-        {id:0,category:0, nombre:"TDI CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:5,initial:1},
-        {id:1,category:0, nombre:"MACD CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1},
-        {id:3,category:1, nombre:"RSI CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1},
-        {id:4,category:1, nombre:"SCALPER CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1}
-    ]
+
         const getItem = new Promise((resolve,reject) => {
             
             setTimeout(() => {
-            resolve(itemsobj.filter(item => item.id == id).map(filteredItem => setDetailItem(filteredItem)))
+            resolve(DATA.filter(item => item.id == id).map(filteredItem => setDetailItem(filteredItem)))
 
             //acá indico que quiero que este setTimeout demore 2 segundos
             }, 2000);
@@ -41,9 +39,7 @@ function ItemDetailContainer({setItems,items,loading,setLoading}) {
             {loading && <Spinner/>}
             {DetailItem &&
                 <ItemDetail 
-                Item={DetailItem}
-                setItems={setItems}
-                items={items}
+                {...DetailItem}
                 />
             }
         </div>

@@ -1,30 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Item from "../Item/Item"
 import Spinner from '../Stateless/Spinner/Spinner'
 import { useParams } from "react-router";
-export const ItemList = ({setItems,items,loading,search,setLoading}) => {
+import { GeneralContext } from "../../context/GeneralContext";
+import DATA from "../../mocks/data";
+export const ItemList = () => {
     const [result,setResult] = useState(null);
+    const {setLoading,loading,search} = useContext(GeneralContext)
     const {idcat,id} = useParams();
      // GET ITEMS
-     const itemsobj = [
-        {id:0,category:0, nombre:"TDI CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:5,initial:1},
-        {id:1,category:0, nombre:"MACD CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1},
-        {id:3,category:1, nombre:"RSI CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1},
-        {id:4,category:1, nombre:"SCALPER CLEVER",description:"YEAH", img: "https://clevertrading.club/wp-content/uploads/2020/08/Logo-TDI-300x300.png",stock:20,initial:1}
-    ]
+
     const task = new Promise((resolve,reject) => {
         
         setTimeout(() => {
             if(id===undefined&&idcat===undefined){
                 
-                resolve(itemsobj)
+                resolve(DATA)
             }
             else if(idcat!==undefined){
-                resolve(itemsobj.filter((i) => i.category == idcat));
+                resolve(DATA.filter((i) => i.category == idcat));
 
             }
             else if(id!==undefined){
-                resolve(itemsobj.filter(item => item.id== id).map(filteredItem => setResult(filteredItem)));
+                resolve(DATA.filter(item => item.id== id).map(filteredItem => setResult(filteredItem)));
             }
         //acá indico que quiero que este setTimeout demore 3 segundos
         }, 2000);
@@ -48,7 +46,7 @@ export const ItemList = ({setItems,items,loading,search,setLoading}) => {
     
     // aca estoy filtrando los productos
     
-    let filter = result && result.filter((p) => p.nombre.toLowerCase().includes(search.toLowerCase()));
+    let filter = result && result.filter((p) => p.title.toLowerCase().includes(search.toLowerCase()));
     console.log("LOADING "+loading );
     return (
         <div className="container-fluid d-flex justify-content-center">
@@ -56,15 +54,7 @@ export const ItemList = ({setItems,items,loading,search,setLoading}) => {
             {result && filter.map((item =>
                 (
                     <Item 
-                        key={item.id}
-                        id={item.id}
-                        title={item.nombre}
-                        stock={item.stock}
-                        text={item.description}
-                        img={item.img}
-                        setItems={setItems}
-                        items={items}
-                        initial={item.initial}
+                        {...item}
                     />
                 )))}
         </div>

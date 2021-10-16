@@ -1,8 +1,11 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './Navbar.scss';
 import CartWidget from '../CartWidget/CartWidget';
-import { Link } from "react-router-dom";
-const navbar = ({items,setSearch}) => {
+import { Link} from "react-router-dom";
+import { GeneralContext } from '../../context/GeneralContext';
+const Navbar = () => {
+
+  const {setSearch} = useContext(GeneralContext);
     // console.log(items)
     return (
         <div id="header">
@@ -46,7 +49,7 @@ const navbar = ({items,setSearch}) => {
               </a>
             </div>
             <div>
-                <CartWidget items={items}/>
+                <CartWidget/>
             </div>
           </div>
         </nav>
@@ -54,4 +57,4 @@ const navbar = ({items,setSearch}) => {
     )
 }
 
-export default navbar
+export default Navbar

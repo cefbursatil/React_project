@@ -4,16 +4,15 @@ import ItemListContainer from '../ItemListContainer/ItemListContainer'
 import Banner from '../Banner/Banner'
 import {BrowserRouter,Route,Switch} from "react-router-dom";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
-
+import WrapperContext from "../Wrapper/WrapperContext";
 
 
 function Main(props) {
     //defino un state para el carrito, definiendo variable de items agregados al carrito
 
     
-    const [items,setItems] = useState(0)
-    const [loading, setLoading] = useState(false);
-    const [search, setSearch] = useState("");
+    //const [items,setItems] = useState(0)
+
 
     /*const [carts,setCarts] = useState(0)
     const addCart = () => {
@@ -26,25 +25,27 @@ function Main(props) {
      //Ponemos key a los router para obligarlo a actualizar debido a que el componente es el mismo   
     return (
         <main>
+            <WrapperContext>    
             <BrowserRouter>
-                <Navbar items={items} setSearch={setSearch}/>
-                <Banner/>
-                <Switch>
-                    
-                    <Route exact path ="/">
-                        <ItemListContainer setItems={setItems} items={items} search={search} setLoading={setLoading} loading={loading}/>
-                    </Route>
-                    <Route path ="/category/:idcat">
-                        <ItemListContainer setItems={setItems} items={items} search={search} setLoading={setLoading} loading={loading}/>
-                    </Route>
-                    <Route path="/item/:id"> 
-                        <ItemDetailContainer setItems={setItems} items={items} search={search} setLoading={setLoading} loading={loading}/>
-                    </Route>
-                    <Route path="*">
-                        <h1>La pantalla de 404  !!!</h1>
-                    </Route>
-                </Switch>
-            </BrowserRouter>
+                <Navbar/>
+                    <Banner/>
+                    <Switch>
+                        
+                        <Route exact path ="/">
+                            <ItemListContainer/>
+                        </Route>
+                        <Route path ="/category/:idcat">
+                            <ItemListContainer/>
+                        </Route>
+                        <Route path="/item/:id"> 
+                            <ItemDetailContainer/>
+                        </Route>
+                        <Route path="*">
+                            <h1>La pantalla de 404  !!!</h1>
+                        </Route>
+                    </Switch>
+                </BrowserRouter>
+            </WrapperContext>    
         </main>
     )
 }
