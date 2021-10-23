@@ -5,6 +5,7 @@ import Banner from '../Banner/Banner'
 import {BrowserRouter,Route,Switch} from "react-router-dom";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 import WrapperContext from "../Wrapper/WrapperContext";
+import Cart from "../Cart/Cart";
 
 
 function Main(props) {
@@ -39,6 +40,9 @@ function Main(props) {
                         </Route>
                         <Route path="/item/:id"> 
                             <ItemDetailContainer/>
+                        </Route>
+                        <Route path="/cart"> 
+                            <Cart/>
                         </Route>
                         <Route path="*">
                             <h1>La pantalla de 404  !!!</h1>
