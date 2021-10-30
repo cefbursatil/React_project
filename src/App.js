@@ -1,5 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'semantic-ui-css/semantic.min.css'
 import Main from "./components/Main/Main";
 import jquery from 'jquery'
 window.jQuery = jquery

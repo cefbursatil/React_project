@@ -35,7 +35,7 @@ function Main(props) {
                         <Route exact path ="/">
                             <ItemListContainer/>
                         </Route>
-                        <Route path ="/category/:idcat">
+                        <Route path ="/category/:namecat">
                             <ItemListContainer/>
                         </Route>
                         <Route path="/item/:id"> 

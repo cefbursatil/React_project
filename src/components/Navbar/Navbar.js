@@ -41,8 +41,8 @@ const Navbar = () => {
           </form>
         </div>
         <div className="navbar-nav header__menu">
-              <Link to="/category/0" className="nav-item nav-link">Momentum</Link>
-              <Link to="/category/1" className="nav-item nav-link">Oscilators</Link>
+              <Link to="/category/Technology" className="nav-item nav-link">Technology</Link>
+              <Link to="/category/Industrials" className="nav-item nav-link">Industrials</Link>
             </div>
             <div id="header__call-action" className="navbar-text">
               <a href="https://www.mql5.com/en/market/product/65466">Try the EA

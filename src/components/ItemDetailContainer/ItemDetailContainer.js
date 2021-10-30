@@ -4,6 +4,7 @@ import Spinner from '../Stateless/Spinner/Spinner'
 import { useParams } from "react-router";
 import DATA from "../../mocks/data";
 import { GeneralContext } from "../../context/GeneralContext";
+import { getFirestore } from "../../Services/getFirestore";
 
 function ItemDetailContainer() {
     const [DetailItem,setDetailItem] = useState(null);
@@ -11,12 +12,9 @@ function ItemDetailContainer() {
     const {id} = useParams()
 
         const getItem = new Promise((resolve,reject) => {
-            
-            setTimeout(() => {
-            resolve(DATA.filter(item => item.id == id).map(filteredItem => setDetailItem(filteredItem)))
-
-            //acá indico que quiero que este setTimeout demore 2 segundos
-            }, 2000);
+            const db =getFirestore();
+            db.collection('insiderstocks').where('id','==',id).get()
+            .then(resp => resolve(resp.docs.map(it => ({img:"https://iflr.com/Media/images/iflr/1-abstract/stock%20exchange.jpeg",id2:it.id,...it.data()}))))
             })    
         useEffect(()=> {
             if(!DetailItem){
@@ -25,6 +23,8 @@ function ItemDetailContainer() {
                     if(err) console.log(err)
                     setDetailItem(res)
                     setLoading(false)
+                    console.log("Respuesta")
+                    console.log(res)
                 }).catch((error) =>{
                     console.log(error)
                 }).finally(() =>{
@@ -37,11 +37,12 @@ function ItemDetailContainer() {
         
         <div>
             {loading && <Spinner/>}
-            {DetailItem &&
-                <ItemDetail 
-                {...DetailItem}
-                />
-            }
+            {DetailItem && DetailItem.map((DetailItem =>
+                (
+                    <ItemDetail 
+                        {...DetailItem}
+                    />
+                )))}
         </div>
     )
 }
