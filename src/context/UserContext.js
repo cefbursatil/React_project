@@ -3,14 +3,14 @@ import React, { useState, createContext, useEffect } from "react"
 export const UserContext = createContext({})
 
 export const UserContextProvider = ({ children }) => {
-    const [name, SetName] = useState("");
+    const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
   return (
     <UserContext.Provider
       value={{
         name,
-        SetName,
+        setName,
         phone,
         setPhone,
         email,

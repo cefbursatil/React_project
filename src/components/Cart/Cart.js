@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import MiniProduct from '../MiniProduct/MiniProduct'
 import styles from './Cart.css'
+import { Link} from "react-router-dom";
 
 const Cart = () => {
   const {cartItems, total, price, clear, handleTotalPriceByItem} = useContext(CartContext)
@@ -26,6 +27,9 @@ const Cart = () => {
                 </div>
                 <div className={styles.items}>
                     {cartItems.map(element => <MiniProduct {...element}/>)}
+                </div>
+                <div className={styles.btns}>
+                    <Link to="/checkout"><button>CHEKOUT</button></Link>
                 </div>
             </div>
         }
