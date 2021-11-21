@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import MiniProduct from '../MiniProduct/MiniProduct'
-import styles from './Cart.css'
+import './Cart.scss'
 import { Link} from "react-router-dom";
 
 const Cart = () => {
-  const {cartItems, total, price, clear, handleTotalPriceByItem} = useContext(CartContext)
+  const {cartItems, total, price, clear} = useContext(CartContext)
   const itemCarrito=total>0;
   return (
-    <div className={styles.main}>
+    <div>
         {!itemCarrito && 
             <div className="mt-4 text-center">
                 <h2>🛒 Cart</h2>
@@ -23,13 +23,13 @@ const Cart = () => {
                     <b> / COST: ${price}</b>
                 </div>
                 <div>
-                    <button onClick={clear}>CLEAR CART</button>
+                    <button className="button_clever" onClick={clear}>CLEAR CART</button>
                 </div>
-                <div className={styles.items}>
+                <div>
                     {cartItems.map(element => <MiniProduct {...element}/>)}
                 </div>
-                <div className={styles.btns}>
-                    <Link to="/checkout"><button>CHECKOUT</button></Link>
+                <div>
+                    <Link to="/checkout" ><button className="button_clever">CHECKOUT</button></Link>
                 </div>
             </div>
         }

@@ -4,15 +4,13 @@ import { getDailyChartForSymbol } from '../API/API';
 
 const Chart = ({symbol}) => {
     const [stockData, setStockData] = useState([]);
-    console.log("Symbol "+symbol)
     // Fetch daily stock chart for TSLA when the component mounts
     useEffect(() => {
         const fetchStockData = async () => {
             const result = await getDailyChartForSymbol(symbol);
 
             setStockData(formatStockData(result.data['Time Series (Daily)']));
-            console.log("DATA"+symbol)
-            console.log(result.data)
+
         };
 
         fetchStockData();

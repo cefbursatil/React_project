@@ -5,7 +5,7 @@ import './CartWidget.scss';
 import { CartContext } from '../../context/CartContext';
 function CartWidget() {
     const {total} = useContext(CartContext);
-    console.log(total)
+
     return (
         <span id="cart">
             <p>

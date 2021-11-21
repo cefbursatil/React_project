@@ -1,8 +1,8 @@
-import React ,{useContext,useEffect} from 'react'
+import React  from 'react'
 import { Link } from "react-router-dom";
 import Chart from '../Chart/Chart';
 function ItemDetail(item) {
-    const {id,companyName,ActualPrice,IssuerTicker,FiltroTotal,img,stock,CashDebt,Industries,NextReport,POWER,Position,nonDerivative,percentBuy} = item
+    const {companyName,ActualPrice,IssuerTicker,FiltroTotal,CashDebt,Industries,NextReport,POWER,Position,nonDerivative,percentBuy} = item
 
 
     return (

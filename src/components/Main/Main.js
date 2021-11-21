@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from '../Navbar/Navbar'
 import ItemListContainer from '../ItemListContainer/ItemListContainer'
 import StrategiesListContainer from "../StrategiesListContainer/StrategiesListContainer";
@@ -11,21 +11,7 @@ import Checkout from "../Checkout/Checkout";
 
 
 function Main(props) {
-    //defino un state para el carrito, definiendo variable de items agregados al carrito
 
-    
-    //const [items,setItems] = useState(0)
-
-
-    /*const [carts,setCarts] = useState(0)
-    const addCart = () => {
-        setCarts(carts+1)
-    }*/
-    //Se loguea cada vez que se realiza algun cambio en items
-    /*useEffect(() => {
-        console.log("Se agrego un Item")
-    }, [items])*/
-     //Ponemos key a los router para obligarlo a actualizar debido a que el componente es el mismo   
     return (
         <main>
             <WrapperContext>    
@@ -34,22 +20,22 @@ function Main(props) {
                     <Banner/>
                     <Switch>
                         
-                        <Route exact path ="/">
+                        <Route exact path ="/" key={Location.pathname}>
                             <StrategiesListContainer/>
                         </Route>
-                        <Route path ="/category/:namecat">
+                        <Route path ="/category/:namecat" key={Location.pathname}>
                             <ItemListContainer/>
                         </Route>
-                        <Route path="/item/:id"> 
+                        <Route path="/item/:id" key={Location.pathname}> 
                             <ItemDetailContainer/>
                         </Route>
-                        <Route path="/cart"> 
+                        <Route path="/cart" key={Location.pathname}> 
                             <Cart/>
                         </Route>
-                        <Route path="/checkout"> 
+                        <Route path="/checkout" key={Location.pathname}> 
                             <Checkout/>
                         </Route>
-                        <Route path="*">
+                        <Route path="*" key={Location.pathname}>
                             <h1>La pantalla de 404  !!!</h1>
                         </Route>
                     </Switch>

@@ -8,13 +8,7 @@ export const ItemList = () => {
     const [result,setResult] = useState(null);
     const {setLoading,loading,search} = useContext(GeneralContext)
     const {namecat} = useParams();
-     // GET ITEMS
-    /* const db =getFirestore();
-     console.log("db");
-     db.collection('Items').doc('1rNJM0DKuIbjP9fcna9z').get()
-     .then(resp => console.log(resp.data()))
-     console.log(db);
-     */
+
     const task = new Promise((resolve,reject) => {
         
             const db =getFirestore();
@@ -41,7 +35,6 @@ export const ItemList = () => {
                 if(err) console.log(err)
                 setResult(res)
                 setLoading(false);
-                console.log("RESULTADO")
                 console.log(res)
             }).catch((error) =>{
                 console.log(error)
@@ -54,7 +47,7 @@ export const ItemList = () => {
     // aca estoy filtrando los productos
     
     let filter = result && result.filter((p) => p.IssuerTicker.toLowerCase().includes(search.toLowerCase()));
-    console.log("LOADING "+loading );
+
     return (
         <div className="container d-flex justify-content-center mt-50 mb-50" style={{display: 'flex', flexDirection: 'column'}}>
             {loading && <Spinner/>}

@@ -5,11 +5,11 @@ import { UserContext } from '../../context/UserContext'
 import firebase from 'firebase/app'
 import { getFirestore } from '../../Services/getFirestore'
 import 'firebase/firestore'
-import styles from './Checkout.css'
+import './Checkout.scss'
 
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 const Checkout = () => {
-  const {cartItems, total, price, clear, handleTotalPriceByItem} = useContext(CartContext)
+  const {cartItems, total, price} = useContext(CartContext)
   const {name,setName,phone,setPhone,email,setEmail} = useContext(UserContext)
   const itemCarrito=total>0;
 
@@ -73,7 +73,7 @@ const Checkout = () => {
         // })
     }
   return (
-    <div className={styles.main}>
+    <div>
         {!itemCarrito && 
             <h2>🛒 Checkout</h2>
             &&
@@ -116,7 +116,7 @@ const Checkout = () => {
                         value={email}
                         onChange = {handleChangeEmail}
                     />
-                    <Button onClick={()=>OrderCreate()}>Suscribe</Button>
+                    <Button className="button_clever" onClick={()=>OrderCreate()}>Suscribe</Button>
                 </Form>
                 </div>
             </div>

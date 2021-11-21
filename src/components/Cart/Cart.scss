@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+.main {
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 20%;
+  }
+
+
+
+  .button_clever{
+      background-color: $colorbase2; 
+      color:$colorbase; 
+      font-size: 25px;
+  }
+  .button_clever_add{
+      background-color: $colorbase2; 
+      color:$colorbase; 
+
+  }
+  

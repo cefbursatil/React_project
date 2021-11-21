@@ -2,7 +2,7 @@
 import { Link} from "react-router-dom";
 import "./Item.scss"
 function Item(item) {
-    const {id,companyName,ActualPrice,IssuerTicker,FiltroTotal,img,stock,CashDebt,Industries,NextReport,POWER,Position,nonDerivative,percentBuy} = item
+    const {id,companyName,ActualPrice,IssuerTicker,FiltroTotal,Industries} = item
     return (
 
                 <div className="contenedor_grid">

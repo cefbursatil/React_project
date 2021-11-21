@@ -2,7 +2,6 @@ import React, { useEffect, useState ,useContext } from "react";
 import ItemDetail from '../ItemDetail/ItemDetail'
 import Spinner from '../Stateless/Spinner/Spinner'
 import { useParams } from "react-router";
-import DATA from "../../mocks/data";
 import { GeneralContext } from "../../context/GeneralContext";
 import { getFirestore } from "../../Services/getFirestore";
 
@@ -23,15 +22,13 @@ function ItemDetailContainer() {
                     if(err) console.log(err)
                     setDetailItem(res)
                     setLoading(false)
-                    console.log("Respuesta")
-                    console.log(res)
+
                 }).catch((error) =>{
                     console.log(error)
                 }).finally(() =>{
                     console.log('finalizado DetailItem')
                 })
             }
-            //console.log(DetailItem)
         },[DetailItem]);   
     return (
         

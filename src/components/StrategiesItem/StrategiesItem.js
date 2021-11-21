@@ -1,14 +1,7 @@
-
-import {useContext} from "react";
 import { Link} from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
 import './StrategiesItem.scss';
 function StrategiesItem(item) {
-    const {id,img,risk,strategy} = item
-    const {addItem,cartItems} = useContext(CartContext)
-    const handleOnAdd = count => addItem(item, count)
-    const cartElement = cartItems.find(element => element.item.id === item.id)
-    const alreadyCart = cartElement ? cartElement.count : 0;
+    const {img,risk,strategy} = item
     const newTo = { 
         pathname: `/category/${strategy}`, 
         strategy: item 

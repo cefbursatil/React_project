@@ -14,9 +14,5 @@ function StrategiesListContainer() {
     )
 }
 
-StrategiesList.propTypes = {
-
-}
-
 export default StrategiesListContainer
 

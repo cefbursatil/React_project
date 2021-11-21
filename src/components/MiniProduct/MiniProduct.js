@@ -2,7 +2,7 @@ import React,{useContext} from 'react'
 import { CartContext } from '../../context/CartContext'
 
 const MiniProduct = ({item, count}) => {
-  const {img,strategy, price} = item
+  const {strategy, price} = item
   const {removeItem, removeOneItem,addOneItem} = useContext(CartContext)
   const totalvalue=price * count
   return (
