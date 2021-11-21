@@ -1,31 +1,29 @@
 
-import {useContext} from "react";
-import ItemCount from "../ItemCount/ItemCount";
 import { Link} from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
+import "./Item.scss"
 function Item(item) {
-    const {id,ActualPrice,IssuerTicker,FiltroTotal,img,stock,CashDebt,Industries,NextReport,POWER,Position,nonDerivative,percentBuy} = item
-    const {addItem,cartItems} = useContext(CartContext)
-    const handleOnAdd = count => addItem(item, count)
-    const cartElement = cartItems.find(element => element.item.id === item.id)
-    const alreadyCart = cartElement ? cartElement.count : 0;
+    const {id,companyName,ActualPrice,IssuerTicker,FiltroTotal,img,stock,CashDebt,Industries,NextReport,POWER,Position,nonDerivative,percentBuy} = item
     return (
 
-        <div>
-            <div >
-                <div className="card">
-                    <img className="card-img-top" src={img} alt="Card cap"/>
-                    <div className="card-body">
-                        <h5 className="card-title">{IssuerTicker}</h5>
-                        <p className="card-text">Actual Price: {ActualPrice}</p>
-                        <p className="card-text">Buys Insiders: {nonDerivative}</p>
-                        <p className="card-text">Percent Buy: {percentBuy}</p>
-                        <ItemCount stock={stock-alreadyCart} initial={1} onAdd={handleOnAdd}/>
+                <div className="contenedor_grid">
+                    <div className="column-1">
+                        <h5>{`${companyName} (${IssuerTicker}) `}</h5>
+                        <p>{Industries}</p>
+                    </div>
+                    <div className="column-2">
+                        <h5>Last Price</h5>
+                        <p>{(ActualPrice).toLocaleString(undefined,{ minimumFractionDigits: 2 })}</p>
+                    </div>
+                    <div className="column-3">
+                        <h5> Fund. Rank (1-16) </h5>
+                        <p>{FiltroTotal}</p>
+                    </div>
+                    <div className="column-4">
                         <Link to={`/item/${id}`} className="btn mx-2 btn-info ">+ Info</Link>
                     </div>
+                        
                 </div>
-            </div>
-        </div>  
+  
     
     )
 }

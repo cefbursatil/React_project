@@ -62,9 +62,7 @@ export const CartContextProvider = ({ children }) => {
     return cartItems && cartItems.some(element => element.item.id === item.id)
   }
 
-  // !!! Bonus Section 🎉🎉🎉
 
-  // * BONUS: Quito solo 1 elemento del carrito
   const removeOneItem = item => {
     if (isInCart(item)) {
       // 1. BUSCO el producto por el id.
@@ -86,6 +84,25 @@ export const CartContextProvider = ({ children }) => {
         // 1.d. actualizo el carrito.
         setCartItems([...cart])
       }
+    } 
+  }
+  const addOneItem = item => {
+    if (isInCart(item)) {
+      // 1. BUSCO el producto por el id.
+
+      // 1.a. Creo una copia de mi carrito
+      let cart = cartItems
+      // 1.b. Mapeo el carrito
+      cart.map(element => {
+        // 1.c. Resto 1 al contador
+        if (element.item.id === item.id) {
+          element.count = element.count + 1
+        }
+        return element
+      })
+      // 1.d. actualizo el carrito.
+      setCartItems([...cart])
+      
     } 
   }
 
@@ -147,6 +164,7 @@ export const CartContextProvider = ({ children }) => {
         clear,
         isInCart,
         removeOneItem,
+        addOneItem,
         cartItems,
         total,
         price,

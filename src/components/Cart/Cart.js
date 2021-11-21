@@ -10,26 +10,26 @@ const Cart = () => {
   return (
     <div className={styles.main}>
         {!itemCarrito && 
-            <h2>🛒 Carrito</h2>
-            &&
-            <p> NO HAY ITEMS EN EL CARRITO</p>
+            <div className="mt-4 text-center">
+                <h2>🛒 Cart</h2>
+                <p> NO ITEMS IN CART</p>
+            </div>
         }  
         {itemCarrito && 
-            <div>
-                <div className={styles.cart}>
+            <div className="mt-4 text-center">
+                <div className=" m-3">
                     <h2>🛒 Carrito</h2>
-                    <b>PRODUCTOS: {total}</b>
-                    <b>TOTAL: ${price}</b>
+                    <b>TOTAL MONTHS: {total} </b>
+                    <b> / COST: ${price}</b>
                 </div>
-                <div className={styles.btns}>
-                    <button onClick={clear}>Limpiar carrito</button>
-                    <button onClick={handleTotalPriceByItem}>carrito con total</button>
+                <div>
+                    <button onClick={clear}>CLEAR CART</button>
                 </div>
                 <div className={styles.items}>
                     {cartItems.map(element => <MiniProduct {...element}/>)}
                 </div>
                 <div className={styles.btns}>
-                    <Link to="/checkout"><button>CHEKOUT</button></Link>
+                    <Link to="/checkout"><button>CHECKOUT</button></Link>
                 </div>
             </div>
         }

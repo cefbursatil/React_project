@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from '../Navbar/Navbar'
 import ItemListContainer from '../ItemListContainer/ItemListContainer'
+import StrategiesListContainer from "../StrategiesListContainer/StrategiesListContainer";
 import Banner from '../Banner/Banner'
 import {BrowserRouter,Route,Switch} from "react-router-dom";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
@@ -34,7 +35,7 @@ function Main(props) {
                     <Switch>
                         
                         <Route exact path ="/">
-                            <ItemListContainer/>
+                            <StrategiesListContainer/>
                         </Route>
                         <Route path ="/category/:namecat">
                             <ItemListContainer/>

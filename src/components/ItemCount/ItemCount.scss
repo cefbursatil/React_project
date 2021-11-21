@@ -1,0 +1,18 @@
+@import '../../styles/variables';
+
+.contenedor_suscripcion{
+    margin:10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    .button_clever{
+        background-color: $colorbase2; 
+        color:$colorbase; 
+        font-size: 25px;
+    }
+    .button_clever_add{
+        background-color: $colorbase2; 
+        color:$colorbase; 
+
+    }
+}

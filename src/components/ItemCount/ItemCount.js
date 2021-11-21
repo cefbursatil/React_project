@@ -1,17 +1,22 @@
 import React, { useState} from "react";
+import "./ItemCount.scss"
 
-
-const ItemCount = ({stock, initial = 0, onAdd}) => {
+const ItemCount = ({price,stock, initial = 0, onAdd}) => {
 	const [count, setCount] = useState(initial)
 	return (
-		<div>
+		<div className="contenedor_suscripcion">
 			<div>
-				<button disabled={stock === 0 || count <= 0} onClick={() => setCount(count - 1)}>-</button>
-				<span>{stock === 0 ? 'Sin stock' : count}</span>
-				<button disabled={stock === 0 || count >= stock } onClick={() => setCount(count + 1)}>+</button>
+				<span className="mx-1">Meses de suscripción:  </span>
+				<button className="button_clever_add" disabled={stock === 0 || count <= 0} onClick={() => setCount(count - 1)}>-</button>
+				<span className="mx-3">{stock === 0 ? 'Sin stock' : count}</span>
+				<button className="button_clever_add " disabled={stock === 0 || count >= stock } onClick={() => setCount(count + 1)}>+</button>
 			</div>
-			<button disabled={stock === 0 || count <= 0 || count > stock} onClick={() => onAdd(count)}>Agregar al carrito</button>
-			<span className="total-stock">Stock: {Math.max(stock - count,0)}</span>
+			<div className="m-3">
+				<h3>{`Precio Total: $${price*count}`}</h3>
+			</div>
+			<button className="button_clever mb-5" disabled={stock === 0 || count <= 0 || count > stock} onClick={() => onAdd(count)}>
+				{`Agregar al carrito`}
+			</button>
 		</div>
 	)
 }
