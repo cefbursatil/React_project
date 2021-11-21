@@ -1,7 +1,7 @@
 # STOCK PORTFOLIO SELECTOR
 ## Select the best stocks to invest
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://hopeful-newton-076d27.netlify.app)
+[DEMO](https://hopeful-newton-076d27.netlify.app)
 
 This app show some stock strategies with the best stocks picks, based in fundamental ranking, technical patterns and insider interest.
 
